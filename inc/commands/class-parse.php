@@ -47,8 +47,15 @@ class Parse extends \WP_CLI_Command {
 		foreach( $post_ids as $post_id ) {
 			$post    = get_post( $post_id );
 			$content = apply_filters( 'the_content', $post->post_content );
-			$parsed  = parse_blocks( $content );
-			var_dump($parsed);
+			$blocks  = parse_blocks( $content );
+
+			foreach( $blocks as $block) {
+				$object = array(
+					"Name" => $block['blockName']
+				);
+
+				$formatted[] = $object;
+			}
 			// foreach ( $parsed[0] as $block ) {
 			// 	var_dump($block);
 
@@ -67,7 +74,7 @@ class Parse extends \WP_CLI_Command {
 			// }
 		}
 
-		WP_CLI\Utils\format_items( 'table', $formatted, array( 'Name', 'Attributes' ) );
+		WP_CLI\Utils\format_items( 'table', $formatted, array( 'Name' ) );
 	}
 }
 
