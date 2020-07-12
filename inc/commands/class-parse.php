@@ -50,18 +50,20 @@ class Parse extends \WP_CLI_Command {
 			$parsed  = parse_blocks( $content );
 
 			foreach ( $parsed[0] as $block ) {
-				$list = Array();
+				var_dump($block);
 
-				foreach ($block->attrs as $key => $value) {
-					$list[] = "$key ($value)";
-				}
+				// $list = Array();
 
-				$object = array(
-					"Name"       => $block[0]->block_name,
-					"Attributes" => implode(', ',$list)
-				);
+				// foreach ($block->attrs as $key => $value) {
+				// 	$list[] = "$key ($value)";
+				// }
 
-				$formatted[] = $object;
+				// $object = array(
+				// 	"Name"       => $block[0]->block_name,
+				// 	"Attributes" => implode(', ',$list)
+				// );
+
+				// $formatted[] = $object;
 			}
 		}
 
