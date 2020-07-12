@@ -48,23 +48,23 @@ class Parse extends \WP_CLI_Command {
 			$post    = get_post( $post_id );
 			$content = apply_filters( 'the_content', $post->post_content );
 			$parsed  = parse_blocks( $content );
+			var_dump($parsed);
+			// foreach ( $parsed[0] as $block ) {
+			// 	var_dump($block);
 
-			foreach ( $parsed[0] as $block ) {
-				var_dump($block);
+			// 	$list = Array();
 
-				// $list = Array();
+			// 	foreach ($block->attrs as $key => $value) {
+			// 		$list[] = "$key ($value)";
+			// 	}
 
-				// foreach ($block->attrs as $key => $value) {
-				// 	$list[] = "$key ($value)";
-				// }
+			// 	$object = array(
+			// 		"Name"       => $block[0]->block_name,
+			// 		"Attributes" => implode(', ',$list)
+			// 	);
 
-				// $object = array(
-				// 	"Name"       => $block[0]->block_name,
-				// 	"Attributes" => implode(', ',$list)
-				// );
-
-				// $formatted[] = $object;
-			}
+			// 	$formatted[] = $object;
+			// }
 		}
 
 		WP_CLI\Utils\format_items( 'table', $formatted, array( 'Name', 'Attributes' ) );
