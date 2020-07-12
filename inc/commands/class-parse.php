@@ -52,7 +52,7 @@ class Parse extends \WP_CLI_Command {
 			foreach ( $parsed[0] as $block ) {
 				$list = Array();
 
-				foreach ($block[0]->attrs as $key => $value) {
+				foreach ($block->attrs as $key => $value) {
 					$list[] = "$key ($value)";
 				}
 
