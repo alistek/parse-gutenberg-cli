@@ -7,7 +7,7 @@ use WP_CLI;
 class Parse extends \WP_CLI_Command {
 
 	/**
-	 * Attempts to migrate posts from the Classic Editor post_content format into blocks
+	 * Attempts to parse a Gutenberg Block into a table format for viewing
 	 *
 	 * ## OPTIONS
 	 *
@@ -16,7 +16,7 @@ class Parse extends \WP_CLI_Command {
 	 *
 	 * ## EXAMPLES
 	 *
-	 *   wp gutenberg migrate --ids=1,2,3
+	 *   wp gutenberg parse --ids=1,2,3
 	 *
 	 * @synopsis [--ids=<post_ids>]
 	 *
