@@ -45,16 +45,17 @@ class Parse extends \WP_CLI_Command {
 		$formatted = Array();
 
 		foreach( $post_ids as $post_id ) {
-			$post      = get_post( $post_id );
-			$content   = apply_filters( 'the_content', $post->post_content );
-			$parsed    = parse_blocks( $content );
-			$list      = Array();
+			$post    = get_post( $post_id );
+			$content = apply_filters( 'the_content', $post->post_content );
+			$parsed  = parse_blocks( $content );
 
-			foreach ($block[0]->attrs as $key => $value) {
-				$list[] = "$key ($value)";
-			}
+			foreach ( $parsed[0] as $block ) {
+				$list = Array();
 
-			foreach ( $parsed as $block ) {
+				foreach ($block[0]->attrs as $key => $value) {
+					$list[] = "$key ($value)";
+				}
+
 				$object = array(
 					"Name"       => $block[0]->block_name,
 					"Attributes" => implode(', ',$list)
