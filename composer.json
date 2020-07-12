@@ -1,0 +1,21 @@
+
+{
+  "name": "alistek/parse-gutenberg-cli",
+  "description": "Attempt to parse a Gutenberg post",
+  "type": "wp-cli-package",
+  "homepage": "https://github.com/alistek/parse-gutenberg-cli",
+  "license": "MIT",
+  "authors": [
+      {
+              "name": "Adam Listek",
+              "email": "adam@listekconsulting.com",
+              "homepage": "https://www.listekconsulting.com"
+          }
+      ],
+  "require": {
+      "php": ">=7.0.0"
+  },
+  "autoload": {
+      "files": [ "gutenberg-cli.php" ]
+  }
+}
